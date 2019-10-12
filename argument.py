@@ -7,4 +7,4 @@ class className():
 
 c=className("1234567")
 c.myprint()
-//https://www.headboost.jp/python-class/
+#//https://www.headboost.jp/python-class/
