@@ -73,13 +73,13 @@ def select():
  
     # プリペアードステートメントで絞り込み
     query = "SELECT * FROM " + table_name + " WHERE name = %s"
-    cur.execute(query, ["hoge"])
+    cur.execute(query, ["fugafuga"])
  
-    print("hoge:")
+    print("fugafuga:")
     rows = cur.fetchall()
+    print(rows)
     for row in rows:
         print(row)
-
-create_table()
-insert()
+#create_table()
+#insert()
 select()
