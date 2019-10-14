@@ -56,7 +56,6 @@ def insert():
         cnx.rollback()
         raise e
         
-        
 # データ取得
 def select():
     # 全件取得
@@ -65,6 +64,7 @@ def select():
  
     print("all:")
     rows = cur.fetchall()
+
     for row in rows:
         print(row)
  
@@ -77,9 +77,26 @@ def select():
  
     print("fugafuga:")
     rows = cur.fetchall()
-    print(rows)
     for row in rows:
         print(row)
-#create_table()
-#insert()
-select()
+# データ比較
+class checkData():
+    def __init__(self, n):
+        self.a = n
+    
+    def check(self):
+        print(self.a)
+
+        # 全件取得
+        query = "SELECT * FROM sample_table"
+        cur.execute(query)
+        rows = cur.fetchall()
+        
+        if len(rows) > self.a:
+            print("false")
+        else:
+            print("true")
+
+c=checkData(4)
+c.check()
+
