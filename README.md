@@ -13,3 +13,13 @@ https://cloudpack.media/1316
 
 ### Python + mysql-connector-python の使い方まとめ
 https://qiita.com/valzer0/items/2f27ba98397fa7ff0d74
+
+DBにデータを挿入するAPIを用意
+
+アプリ側から叩く、
+
+IDの更新があればtureを取得する。
+
+tureを取得すればデータを取得する。
+
+AWSのRDBを用意する。
