@@ -23,3 +23,6 @@ IDの更新があればtureを取得する。
 tureを取得すればデータを取得する。
 
 AWSのRDBを用意する。
+
+if文
+https://note.nkmk.me/python-if-elif-else/
