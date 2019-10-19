@@ -13,6 +13,11 @@ cur = cnx.cursor()
 # 接続できているかどうか確認
 print(cnx.is_connected())
 
+# 指定のデータを削除
+def deleate():
+    # SQLクエリ実行（データ削除）
+    sql = 'DELETE FROM sample_table WHERE name = "Test"'
+    cur.execute(sql)
 
 # テーブル作成
 def create_table():
@@ -31,19 +36,20 @@ def insert():
         cur.execute(query, (1, "hoge"))
  
         # タプルで複数行挿入
-        dataset_tpl = [
-            (2, "fuga"),
-            (3, "piyo"),
-            (4, "hogefuga"),
-            (5, "fugafuga")
-        ]
+      #  dataset_tpl = [
+      #      (2, "fuga"),
+      #      (3, "piyo"),
+      #      (4, "hogefuga"),
+      #      (5, "fugafuga")
+      #   ]
  
         # リストでもいける
         dataset_list = [
             [2, "fuga"],
             [3, "piyo"],
             [4, "hogefuga"],
-            [5, "fugafuga"]
+            [5, "fugafuga"],
+            [6, "Test"]
         ]
  
         cur.executemany(query, dataset_list)
@@ -64,9 +70,9 @@ def select():
  
     print("all:")
     rows = cur.fetchall()
-
-    for row in rows:
-        print(row)
+    print(rows)
+        #for row in rows:
+        #print(row)
  
     # テーブル名を変数で入れる場合は文字列でつなぐ
     table_name = "sample_table"
@@ -97,6 +103,8 @@ class checkData():
         else:
             print("true")
 
-c=checkData(4)
-c.check()
-
+#c=checkData(4)
+#c.check()
+#insert()
+deleate()
+select()
