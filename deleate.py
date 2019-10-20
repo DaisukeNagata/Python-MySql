@@ -1,4 +1,3 @@
-
 from flask import Flask, jsonify, abort, make_response
 import peewee as pe
 import mysql.connector
@@ -32,27 +31,17 @@ api = Flask(__name__)
 api.config['JSON_AS_ASCII'] = False
 
 # itemの詳細情報を取得
-@api.route('/insert/<int:id>/<string:name>', methods=['GET'])
-def getItem(id, name):
-    print(id)
-    print(name)
-    db.connect()
-    try:
-        query = "INSERT INTO sample_table (id, name) VALUES (%s, %s)"
-        
-        # 単一行挿入
-        cur.execute(query, (id, name))
-        
-        # データのコミット
-        cnx.commit()
-    except Items.DoesNotExist:
-        db.close()
-        abort(404)
-    result = {
-        "result": True,
-    }
-    db.close()
-    return make_response(jsonify(result))
+@api.route('/delete', methods=['GET'])
+# 指定のデータを削除
+def delete():
+    sql = 'DELETE FROM sample_table'
+    cur.execute(sql)
+
+    # データのコミット
+    cnx.commit()
+    cur.close()
+    cnx.close()
+    return make_response()
 
 @api.errorhandler(404)
 def not_found(error):
