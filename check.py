@@ -47,12 +47,13 @@ def check(id):
         abort(404)
     
     flg = True
-    if len(rows) > id:
+    if len(rows) >= id:
         flg = True
     else:
         flg = False
-
+    
     if flg == True:
+        table_name = "sample_table"
         data = Items.select(Items.name).where(Items.id == id)
         data = "SELECT * FROM " + table_name + " WHERE id = %s"
         cur.execute(data, [id])
@@ -65,8 +66,8 @@ def check(id):
             }
     else:
         result = {
-            "result": flg,
-            "result":flg,
+            "result": False,
+            "rows": flg,
         }
        
     db.close()

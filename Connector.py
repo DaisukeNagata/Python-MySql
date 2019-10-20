@@ -102,9 +102,9 @@ class checkData():
             print("false")
         else:
             print("true")
-
+#create_table()
 #c=checkData(4)
 #c.check()
-#insert()
-deleate()
-select()
+insert()
+#deleate()
+#select()
