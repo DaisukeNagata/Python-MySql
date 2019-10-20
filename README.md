@@ -26,3 +26,12 @@ AWSのRDBを用意する。
 
 if文
 https://note.nkmk.me/python-if-elif-else/
+
+
+https://qiita.com/furusin_oriver/items/f81351c96efbb40432df
+
+テーブルの一覧とテーブルに関する情報を取得する
+https://www.dbonline.jp/mysql/table/index2.html
+
+テーブルの列の情報を一覧表示する
+http://mysql.javarou.com/dat/000581.html
