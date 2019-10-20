@@ -51,12 +51,27 @@ def check(id):
         flg = True
     else:
         flg = False
-    
-    result = {
-           "result":flg,
-    }
+
+    if flg == True:
+        data = Items.select(Items.name).where(Items.id == id)
+        data = "SELECT * FROM " + table_name + " WHERE id = %s"
+        cur.execute(data, [id])
+        rows = cur.fetchall()
+
+        for row in rows:
+            result = {
+                "result": True,
+                "rows":row,
+            }
+    else:
+        result = {
+            "result": flg,
+            "result":flg,
+        }
+       
     db.close()
     return make_response(jsonify(result))
+
 
 @api.errorhandler(404)
 def not_found(error):
