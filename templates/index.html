@@ -1,0 +1,23 @@
+<!doctype html>
+
+
+<head>
+	    <meta charset="utf-8">
+        <script src="static/brython.js"></script>
+        <script src="static/brython_stdlib.js"></script>  
+    <body>
+        <h1>My Website</h1>
+
+        <p>URL
+
+    <button> <a href="/my-link/" id="anchor1">DownLoads</a></button>
+    </body>
+
+<script>
+     var url = '16457165?s=460&v=4';
+     var title = "test.png"
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("anchor1").setAttribute("href", document.getElementById("anchor1").getAttribute("href") + title + "/" + url);
+    }, false);
+
+</script>
