@@ -70,3 +70,5 @@ def not_found(error):
         
 if __name__ == '__main__':
     api.run(host='0.0.0.0',port=3000,debug=False) #host=0.0.0.0を指定することで外部からアクセス可能になる
+    # 同時アクセスができる（並列処理が可能）
+    app.run(host='localhost', port=3000, threaded=True)

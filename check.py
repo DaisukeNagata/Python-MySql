@@ -1,6 +1,8 @@
 from flask import Flask, jsonify, abort, make_response
 import peewee as pe
 import mysql.connector
+import time
+
 db = pe.MySQLDatabase('mysql', user='root', password='',host='127.0.0.1')
 # 接続
 config = {
@@ -34,6 +36,10 @@ api.config['JSON_AS_ASCII'] = False
 @api.route('/items/<int:id>', methods=['GET'])
 # データ比較
 def check(id):
+    result = 'hello {0}'.format(id)
+    print('[start] ' + result)
+    time.sleep(10)
+    print('[end] ' + result)
     db.connect()
     try:
         # 全件取得
@@ -63,4 +69,5 @@ def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
         
 if __name__ == '__main__':
-    api.run(host='0.0.0.0',port=3000,debug=False) #host=0.0.0.0を指定することで外部からアクセス可能になる
+    api.run(host='0.0.0.0',port=3000) #host=0.0.0.0を指定することで外部からアクセス可能になる
+
