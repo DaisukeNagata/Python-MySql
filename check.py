@@ -53,16 +53,32 @@ def check(id):
         abort(404)
     
     flg = True
-    if len(rows) > id:
+    if len(rows) >= id:
         flg = True
     else:
         flg = False
     
-    result = {
-           "result":flg,
-    }
+    if flg == True:
+        table_name = "sample_table"
+        data = Items.select(Items.name).where(Items.id == id)
+        data = "SELECT * FROM " + table_name + " WHERE id = %s"
+        cur.execute(data, [id])
+        rows = cur.fetchall()
+
+        for row in rows:
+            result = {
+                "result": True,
+                "rows":row,
+            }
+    else:
+        result = {
+            "result": False,
+            "rows": flg,
+        }
+       
     db.close()
     return make_response(jsonify(result))
+
 
 @api.errorhandler(404)
 def not_found(error):
