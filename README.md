@@ -25,6 +25,7 @@ tureを取得すればデータを取得する。
 AWSのRDBを用意する。
 
 if文
+
 https://note.nkmk.me/python-if-elif-else/
 
 
@@ -35,3 +36,7 @@ https://www.dbonline.jp/mysql/table/index2.html
 
 テーブルの列の情報を一覧表示する
 http://mysql.javarou.com/dat/000581.html
+
+DBの要素検索
+
+https://twitter.com/dbank0208/status/1185988908003123206?s=20
